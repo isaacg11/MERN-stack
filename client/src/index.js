@@ -1,8 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { render } from 'react-dom';
+import { Login, Dashboard } from './screens';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const Index = ({ pathname }) => {
+  switch(pathname) {
+    case "/dashboard":
+      return <Dashboard />;
+    default:
+      return <Login />;
+  }
+};
+
+let pathname = window.location.pathname;
+
+render(<Index pathname={pathname} />, document.getElementById("root"));
+
+ window.addEventListener("popstate", () => {
+  pathname = window.location.pathname;
+});

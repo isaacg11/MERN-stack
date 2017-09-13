@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
 
-class App extends Component {
+class UserAccount extends Component {
 
   signup() {
     let username = document.getElementById('username');
     let password = document.getElementById('password');
 
     axios.post('/users/signup', {username: username.value, password: password.value}).then(() => {
-      alert('success!');
+      window.location.pathname = '/dashboard';
     })
   }
 
@@ -19,7 +18,7 @@ class App extends Component {
 
     axios.post('/users/login', {username: credential1.value, password: credential2.value}).then((result) => {
       localStorage.setItem('token', result.data.token);
-      alert('success!');
+      window.location.pathname = '/dashboard';
     })
   }
 
@@ -53,4 +52,6 @@ class App extends Component {
 
 }
 
-export default App;
+const Login = () => <UserAccount />
+
+export default Login;

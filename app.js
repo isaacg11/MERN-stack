@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(passport.initialize());
 
-mongoose.connect('mongodb://isaac:123@ds129004.mlab.com:29004/codercamps-db');
+mongoose.connect('mongodb://isaac:123@ds133964.mlab.com:33964/codercamps-db');
 
 app.use('/', index);
 app.use('/users', users);
