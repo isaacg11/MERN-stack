@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import jquery from 'jquery';
-const $ = jquery;
+import Btn from '@atlaskit/button';
+
+const Button = props => <Btn {...props} />;
 
 class UserAccount extends Component {
-
-  test() {
-    alert($('#test').val());
-  }
 
   signup() {
     let username = document.getElementById('username');
@@ -54,12 +51,7 @@ class UserAccount extends Component {
         </div>
 
         <h1>Third party library - test</h1>
-        <div>
-        <input type="text" id="test" placeholder="test..." required />
-        </div>
-        <div>
-          <button onClick={() => this.test()}>Test</button>
-        </div>
+        <Button appearance="primary">Submit</Button>
 
       </div>
     );
